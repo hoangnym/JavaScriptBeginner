@@ -112,3 +112,15 @@ if (markBMI > johnBMI) {
 } else {
     console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI}).`)
 }
+
+// type conversion
+const inputYear = '1991';
+console.log(Number(inputYear));
+console.log(Number(inputYear) + 18); // transforms 18 to a string and concatenates
+console.log(String(23)) // converts number to string
+
+// type coercion // automatically in JavaScript
+console.log('I am ' + 23 + ' years old.');
+console.log('23' - '10' - 3); // converts string to number
+console.log('23' + '10' + 3); // converts number to string
+console.log('23' / '2') // converts string to number
