@@ -40,9 +40,6 @@ console.log(typeof countryName);
 console.log(typeof language);
 
 // let, const and var
-let age = 30;
-age++; // possible to change
-
 const birthYear = 1994; // not possible to change
 
 language = 'German';
@@ -89,3 +86,14 @@ const birth = 1994
 const hoang = `I'm ${fullName}, a ${currentYear - birth} year old ${job}.`;
 
 console.log(hoang);
+
+
+// if-else
+const age = 15;
+
+if (age >= 18) {
+    console.log('Sarah can start driving license.')
+} else {
+    console.log('Sarah is not old enough.')
+}
+
