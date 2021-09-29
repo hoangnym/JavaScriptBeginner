@@ -124,3 +124,10 @@ console.log('I am ' + 23 + ' years old.');
 console.log('23' - '10' - 3); // converts string to number
 console.log('23' + '10' + 3); // converts number to string
 console.log('23' / '2') // converts string to number
+
+// booleans -- falsy values: 0, '', undefined, null, NaN, false
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Hoang'));
+console.log(Boolean({}));
+
