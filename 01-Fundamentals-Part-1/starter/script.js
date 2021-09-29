@@ -32,3 +32,13 @@ console.log(typeof(year)) // undefined type
 year = 1991
 console.log(year) // 1991
 console.log(typeof(year)) // number
+
+let isIsland = false;
+let language;
+
+console.log(typeof isIsland);
+console.log(typeof countryPopulation);
+console.log(typeof countryName);
+console.log(typeof language);
+
+// let, const and var
