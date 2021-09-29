@@ -42,3 +42,20 @@ console.log(typeof countryName);
 console.log(typeof language);
 
 // let, const and var
+let age = 30;
+age++; // possible to change
+
+const birthYear = 1994; // not possible to change
+
+language = 'German';
+const areaOfCountry = 354;
+
+console.log(language);
+console.log(areaOfCountry);
+
+// basic operators: comparison, mathematical, ...
+const currentYear = 2021
+const ageHoang = currentYear - 1994;
+const ageDuong = currentYear - 1997;
+
+console.log(ageHoang, ageDuong);
