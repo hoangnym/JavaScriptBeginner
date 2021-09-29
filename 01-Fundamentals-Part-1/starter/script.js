@@ -131,3 +131,29 @@ console.log(Boolean(undefined));
 console.log(Boolean('Hoang'));
 console.log(Boolean({}));
 
+const money = 0;
+if (money) {
+    console.log("Don't spend it all");
+} else {
+    console.log("You should get a job."); // this will trigger, bc 0 is falsey value
+}
+
+let height;
+if (height) {
+    console.log('Yay! Height is defined.');
+} else {
+    console.log('Height is undefined.');
+};
+
+
+// equality operators
+const favourite = Number(prompt("What is your favourite number?"));
+console.log(favourite);
+console.log(typeof favourite);
+
+if (favourite == 23) {
+    console.log("Cool! 23 is an amazing number!")
+} else if (favourite === 7) {
+    console.log("7 is also a cool number.")
+}
+
