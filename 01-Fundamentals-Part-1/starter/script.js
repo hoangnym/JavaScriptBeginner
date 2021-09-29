@@ -63,19 +63,19 @@ console.log(firstName + ' ' + lastName);
 console.log(ageHoang > ageDuong);
 
 // coding challenge # 1
-let markHeight = 1.88
-let markWeight = 95
-let johnHeight = 1.76
-let johnWeight = 85
+// let markHeight = 1.88
+// let markWeight = 95
+// let johnHeight = 1.76
+// let johnWeight = 85
 
-const markBMI = markWeight / (markHeight ** 2)
-const johnBMI = johnWeight / (johnHeight ** 2)
+// const markBMI = markWeight / (markHeight ** 2)
+// const johnBMI = johnWeight / (johnHeight ** 2)
 
-console.log(markBMI, johnBMI)
+// console.log(markBMI, johnBMI)
 
-const markHigherBMI = markBMI > johnBMI
+// const markHigherBMI = markBMI > johnBMI
 
-console.log(markHigherBMI)
+// console.log(markHigherBMI)
 
 
 // string literals
@@ -92,8 +92,23 @@ console.log(hoang);
 const age = 15;
 
 if (age >= 18) {
-    console.log('Sarah can start driving license.')
+    console.log('Sarah can start driving license.');
 } else {
-    console.log('Sarah is not old enough.')
+    console.log('Sarah is not old enough.');
 }
 
+// coding challenge # 2
+let markHeight = 1.88
+let markWeight = 95
+let johnHeight = 1.76
+let johnWeight = 85
+
+const markBMI = markWeight / (markHeight ** 2)
+const johnBMI = johnWeight / (johnHeight ** 2)
+const markHigherBMI = markBMI > johnBMI
+
+if (markBMI > johnBMI) {
+    console.log(`Mark's BMI (${markBMI}) is higher than John's (${johnBMI}).`)
+} else {
+    console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI}).`)
+}
