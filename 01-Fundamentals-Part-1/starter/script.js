@@ -1,7 +1,7 @@
 let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
-// using people as examples
+// variables and values
 let firstName = "Hoang";
 let PI = 3.1415
 
@@ -15,7 +15,20 @@ let countryPopulation = 80000000
 console.log(firstName);
 console.log(countryName, countryContinent, countryPopulation)
 
-let javascriptIsFun = true;
 
+// data types
+let javascriptIsFun = true;
 console.log(javascriptIsFun);
 console.log(typeof(javascriptIsFun));
+
+javascriptIsFun = 'Yes!';
+console.log(javascriptIsFun);
+console.log(typeof(javascriptIsFun));
+
+let year; //undefined value and type
+console.log(year) // undefined value
+console.log(typeof(year)) // undefined type
+
+year = 1991
+console.log(year) // 1991
+console.log(typeof(year)) // number
