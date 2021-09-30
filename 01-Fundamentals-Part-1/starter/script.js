@@ -157,3 +157,4 @@ if (favourite == 23) {
     console.log("7 is also a cool number.")
 }
 
+if (favourite !== 23) console.log("Why not 23?");
