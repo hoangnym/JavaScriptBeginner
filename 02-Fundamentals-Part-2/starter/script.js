@@ -114,9 +114,18 @@ const persona = {
     hasDriversLicense: true,
 
     calcAge: function () {
-        console.log(this);
-        return 2021 - this.birthYear; 
-    }
+        this.age = 2021 - this.birthYear;
+        return this.age; 
+    },
+
+    getSummary: function () {
+        if (this.hasDriversLicense) {
+            return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has a driver's license.`
+        } else {
+            return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he does not have a driver's license.`
+        }
+    },
+
 }
 
 console.log(persona);
@@ -134,5 +143,9 @@ console.log(persona["last" + nameKey]);
 
 console.log(`${persona.firstName} has ${persona.friends.length} friends, and his best friend is called ${persona.friends[0]}.`)
 
-// object methods
+// object methods 
 console.log(persona.calcAge());
+console.log(persona.age);
+
+console.log(persona.getSummary())
+
