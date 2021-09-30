@@ -213,4 +213,5 @@ function calcAverage2(arr) {
     return avg
 }
 
-console.log(calcAverage2(bills2));
+console.log(calcAverage2(totals2));
+console.log(calcAverage2(tips2));
