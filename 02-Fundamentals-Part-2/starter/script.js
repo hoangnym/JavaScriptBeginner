@@ -103,3 +103,15 @@ console.log(bills);
 console.log(tips);
 console.log(totals);
 
+
+// objects
+const persona = {
+    firstName: "Hoang",
+    lastName: "Nguyen",
+    age: 2021 - 1994,
+    job: "programmer",
+    friends: ["Kevin", "Nils", "Huy"]
+}
+
+
+// Dot vs. Bracket Notation
