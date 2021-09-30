@@ -113,5 +113,17 @@ const persona = {
     friends: ["Kevin", "Nils", "Huy"]
 }
 
+console.log(persona);
 
 // Dot vs. Bracket Notation
+console.log(persona.firstName);
+console.log(persona["lastName"]);
+
+const nameKey = "Name";
+console.log(persona["first" + nameKey]);
+console.log(persona["last" + nameKey]);
+
+// const interestedIn = prompt('What do you want to know about Hoang? Choose between firstName, lastName, age, job, and friends?');
+// console.log(persona[interestedIn]);
+
+console.log(`${persona.firstName} has ${persona.friends.length} friends, and his best friend is called ${persona.friends[0]}.`)
