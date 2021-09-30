@@ -198,3 +198,9 @@ ternary >= 18 ? console.log('I like to drink wine.') : console.log('I like to dr
 
 const drink = ternary >= 18 ? 'wine' : 'water';
 console.log(drink);
+
+// coding challenge #4
+let billValue = 430
+let tipValue = billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
+
+console.log(billValue, tipValue);
