@@ -183,3 +183,34 @@ if (markMiller.bmi > johnSmith.bmi) {
 } else {
     console.log("They both have the same BMI.")
 }
+
+// loops
+for (let rep = 1; rep <= 10; rep++) {
+    console.log("Lifting weights repetition " + rep);
+}
+
+// coding challenge #4
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = new Array();
+const totals2 = new Array();
+
+bills2.forEach((bill) => {
+    let tip2 = bill >= 50 && bill <= 300 ? calcTip(bill, 0.15) : calcTip(bill, 0.2);
+    tips2.push(tip2);
+    totals2.push(bill + tip2);
+})
+
+console.log(bills2);
+console.log(tips2);
+console.log(totals2);
+
+function calcAverage2(arr) {
+    let num = 0;
+    arr.forEach((ele) => {
+        num += ele;
+    })
+    const avg = num / arr.length;
+    return avg
+}
+
+console.log(calcAverage2(bills2));
