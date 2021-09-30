@@ -191,3 +191,10 @@ if (dolphinsAvgScore > koalaAvgScore) {
 } else {
     console.log(`It is a draw. Score: ${dolphinsAvgScore} : ${koalaAvgScore}`);
 }
+
+// ternary conditional
+const ternary = 23;
+ternary >= 18 ? console.log('I like to drink wine.') : console.log('I like to drink water.');
+
+const drink = ternary >= 18 ? 'wine' : 'water';
+console.log(drink);
