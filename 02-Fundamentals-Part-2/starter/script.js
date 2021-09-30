@@ -108,9 +108,15 @@ console.log(totals);
 const persona = {
     firstName: "Hoang",
     lastName: "Nguyen",
-    age: 2021 - 1994,
+    birthYear: 1994,
     job: "programmer",
-    friends: ["Kevin", "Nils", "Huy"]
+    friends: ["Kevin", "Nils", "Huy"],
+    hasDriversLicense: true,
+
+    calcAge: function () {
+        console.log(this);
+        return 2021 - this.birthYear; 
+    }
 }
 
 console.log(persona);
@@ -127,3 +133,6 @@ console.log(persona["last" + nameKey]);
 // console.log(persona[interestedIn]);
 
 console.log(`${persona.firstName} has ${persona.friends.length} friends, and his best friend is called ${persona.friends[0]}.`)
+
+// object methods
+console.log(persona.calcAge());
