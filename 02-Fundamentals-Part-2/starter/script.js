@@ -61,3 +61,45 @@ dolphins = calcAverage(85, 54, 41);
 koalas = calcAverage(23, 34, 27);
 
 checkWinner(dolphins, koalas);
+
+
+// arrays
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+console.log(years);
+
+console.log(friends[0]);
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+const firstName = 'Jonas';
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends];
+console.log(jonas);
+
+// methods: .push, .pop, .unshift(<ele>), .shift, .indexOf(<ele>), .includes(<ele>)
+
+// coding challenge #2
+const calcTip = (bill, percentage) => { return bill * percentage };
+const bills = [125, 555, 44]
+const tips = new Array()
+const totals = new Array()
+
+bills.forEach((num) => { 
+    let tip = num >= 50 && num <= 300 ? calcTip(num, 0.15) : calcTip(num, 0.2);
+    tips.push(tip)
+    totals.push(num + tip);
+})
+
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
