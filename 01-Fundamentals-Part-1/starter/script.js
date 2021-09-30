@@ -177,3 +177,17 @@ if(shouldDrive) {
 
 const isTired = true; //C
 console.log(hasDriversLicense || hasGoodVision || isTired);
+
+// coding challenge #3
+let dolphinScores = [96, 108, 89];
+let koalaScores = [96, 108, 89];
+let dolphinsAvgScore = dolphinScores.reduce((a, b) => a + b, 0)/dolphinScores.length;
+let koalaAvgScore = koalaScores.reduce((a, b) => a + b, 0)/koalaScores.length;
+
+if (dolphinsAvgScore > koalaAvgScore) {
+    console.log(`The winner are the dolphins. Score: ${dolphinsAvgScore} : ${koalaAvgScore}`);
+} else if (koalaAvgScore > dolphinsAvgScore) {
+    console.log(`The winner are the koalas. Score: ${dolphinsAvgScore} : ${koalaAvgScore}`);
+} else {
+    console.log(`It is a draw. Score: ${dolphinsAvgScore} : ${koalaAvgScore}`);
+}
