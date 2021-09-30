@@ -158,3 +158,22 @@ if (favourite == 23) {
 }
 
 if (favourite !== 23) console.log("Why not 23?");
+
+// boolean logic
+const hasDriversLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriversLicense && hasGoodVision) //and
+console.log(hasDriversLicense || hasGoodVision) //or
+console.log(!hasDriversLicense) //not
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+
+if(shouldDrive) {
+    console.log("Sarah is able to drive.");
+} else {
+    console.log("Someone else should drive...");
+}
+
+const isTired = true; //C
+console.log(hasDriversLicense || hasGoodVision || isTired);
