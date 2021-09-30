@@ -18,13 +18,46 @@ function logger() {
 logger(); // calling / invoking / running the function
 
 function fruitProcessor(apples, oranges) {
-    const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+    console.log(applePieces, orangePieces);
+    const juice = `Juice with ${applePieces} piece of apples and ${orangePieces} piece of oranges.`
     return juice
 }
 
-let appleJuice = fruitProcessor(5, 0);
+let appleJuice = fruitProcessor(2, 3);
 console.log(appleJuice);
 
 let appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
 
+// functions calling other functions
+function cutFruitPieces(fruit) {
+    return fruit * 4
+}
+
+
+// coding challenge # 1
+const calcAverage = (score1, score2, score3) => {
+    return (score1 + score2 + score3) / 3;
+};
+
+function checkWinner(avg1, avg2) {
+    if (avg1 >= 2 * avg2) {
+        console.log(`Dolphins win (${avg1} vs. ${avg2}).`);
+    } else if (avg2 >= 2 * avg1) {
+        console.log(`Koalas win (${avg2} vs. ${avg1}).`);
+    } else {
+        console.log('It is a draw.')
+    }
+}
+
+let dolphins = calcAverage(44, 23, 71);
+let koalas = calcAverage(65, 54, 49);
+
+checkWinner(dolphins, koalas);
+
+dolphins = calcAverage(85, 54, 41);
+koalas = calcAverage(23, 34, 27);
+
+checkWinner(dolphins, koalas);
