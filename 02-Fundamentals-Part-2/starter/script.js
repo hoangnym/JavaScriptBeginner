@@ -119,11 +119,7 @@ const persona = {
     },
 
     getSummary: function () {
-        if (this.hasDriversLicense) {
-            return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has a driver's license.`
-        } else {
-            return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he does not have a driver's license.`
-        }
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
     },
 
 }
@@ -149,3 +145,41 @@ console.log(persona.age);
 
 console.log(persona.getSummary())
 
+
+function calcBMI(weight, height) {
+    let bmi = weight / (height ** 2);
+    return bmi;
+}
+
+// coding challenge #3
+const markMiller = {
+    fullName : "Mark Miller",
+    weight : 78,
+    height : 1.69,
+    calcBMI : function() {
+        this.bmi = this.weight / (this.height ** 2);
+        return this.bmi;
+    },
+}
+
+const johnSmith = {
+    fullName : "John Smith",
+    weight : 92,
+    height : 1.95,
+
+    calcBMI : function() {
+        this.bmi = this.weight / (this.height ** 2);
+        return this.bmi;
+    },
+}
+
+markMiller.calcBMI();
+johnSmith.calcBMI();
+
+if (markMiller.bmi > johnSmith.bmi) {
+    console.log(`Mark's BMI ${markMiller.bmi} is higher than John's ${johnSmith.bmi}.`);
+} else if (markMiller.bmi < johnSmith.bmi) {
+    console.log(`John's BMI ${johnSmith.bmi} is higher than Mark's ${markMiller.bmi}.`);
+} else {
+    console.log("They both have the same BMI.")
+}
