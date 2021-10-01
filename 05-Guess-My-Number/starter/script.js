@@ -1,17 +1,6 @@
 'use strict';
 
 // DOM Manipulation
-// console.log(document.querySelector(".message").textContent);
-
-// document.querySelector('.message').textContent = "Correct Number!";
-
-// console.log(document.querySelector(".message").textContent);
-
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 10;
-
-// document.querySelector('.guess').value = 23;
-// console.log(document.querySelector('.guess').value);
 
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 
@@ -60,12 +49,13 @@ document.querySelector(".check").addEventListener("click", function() {
 
 // implement reset functionality
 document.querySelector(".again").addEventListener("click", function() {
+
     const reset = document.querySelector(".again").textContent;
     console.log(reset, typeof reset);
     score = 20;
+    secretNumber = Math.floor(Math.random() * 20) + 1;
     document.querySelector('.score').textContent = score;
     document.querySelector('.number').textContent = "?";
-    secretNumber = Math.floor(Math.random() * 20) + 1;
     document.querySelector('body').style.backgroundColor = "#222";
     document.querySelector('.number').style.width = "15rem";
     document.querySelector('.guess').value = "";
