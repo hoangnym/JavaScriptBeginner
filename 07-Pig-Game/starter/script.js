@@ -91,6 +91,4 @@ btnHold.addEventListener('click', function() {
 })
 
 
-btnNew.addEventListener('click', function() {
-    init();
-})
+btnNew.addEventListener('click', init)
