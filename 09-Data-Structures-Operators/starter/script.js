@@ -102,3 +102,35 @@ console.log(i, j, k);
 // Default values
 const [p=1, q=1, r=1] = [8, 9];
 console.log(p, q, r);
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const text = document.querySelector('textarea');
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+  const variables = text.value.trim().split("\n");
+  variables.forEach((ele) => {
+    const name = ele.toLowerCase().split("_");
+    let camelCase = name[0]
+    for (let i = 1; i < name.length; i++) {
+      camelCase += name[i][0].toUpperCase() + name[i].slice(1)
+    }
+    console.log(camelCase);
+  })
+})
+
+
+
+/*
+TESTDATA
+
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+
+*/
