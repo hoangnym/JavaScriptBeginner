@@ -34,11 +34,11 @@ const checkIn = function(flightNum, passenger) {
     flightNum = 'LH199';
     passenger.firstName = "Mr. " + passenger.firstName
 
-    if (passenger.passport === 213492193) {
-        alert("Checked in.");
-    } else {
-        alert("Wrong passport.")
-    }
+    // if (passenger.passport === 213492193) {
+    //     alert("Checked in.");
+    // } else {
+    //     alert("Wrong passport.")
+    // }
 }
 
 checkIn(flight, hoang);
@@ -56,7 +56,7 @@ const upperFirstWord = function(str) {
     return [first.toUpperCase(), ...others].join(" ")
 }
 
-// Higher order function
+// Higher order function (includes a callback function)
 const transformer = function(str, fn) {
     console.log(`Original string: ${str}`);
     console.log(`Transformed string: ${fn(str)}`);
@@ -65,3 +65,13 @@ const transformer = function(str, fn) {
 };
 
 transformer("JavaScript is the best!", upperFirstWord);
+transformer("JavaScript is the best!", oneWord);
+
+// JS uses callbacks all the time
+const high5 = function() {
+    console.log("High Five!");
+}
+
+document.body.addEventListener('click', high5);
+
+['Jonas', 'Martha', 'Adam'].forEach(high5);
