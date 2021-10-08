@@ -113,7 +113,7 @@ const btn = document.querySelector('button');
 btn.addEventListener('click', function() {
   const variables = text.value.trim().split("\n");
   variables.forEach((ele) => {
-    const name = ele.toLowerCase().split("_");
+    const name = ele.toLowerCase().trim().split("_");
     let camelCase = name[0]
     for (let i = 1; i < name.length; i++) {
       camelCase += name[i][0].toUpperCase() + name[i].slice(1)
