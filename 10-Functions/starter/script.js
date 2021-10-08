@@ -205,4 +205,8 @@ const poll = {
 // linking poll object to button
 document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer.bind(poll));
 
+// [5, 2, 3]
+// [1, 5, 3, 9, 6, 1]
 
+poll.displayResults.call({answers: [5, 2, 3]});
+poll.displayResults.call({answers: [1, 5, 3, 9, 6, 1]});
