@@ -61,40 +61,48 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function(movements) {
+const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
   // .textContent = 0
 
-  movements.forEach(function(mov, i) {
-    const type = mov > 0 ? 'deposit' : 'withdrawal'
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
         <div class="movements__value">${mov}</div>
       </div>
-    `
+    `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
-  })
-}
+  });
+};
 
 displayMovements(account1.movements);
 
-const calcDisplayBalance = function(movements) {
-  const balance = movements.reduce((acc, cur) => {return acc + cur}, 0);
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
   labelBalance.textContent = `${balance} EUR`;
-}
+};
 
 calcDisplayBalance(account1.movements);
 
-
-const createUsernames = function(accs) {
-  accs.forEach(function(acc) {
-    acc.username = acc.owner.toLowerCase().split(' ').map((word) => {return word[0]}).join('');
-  })
-}
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(word => {
+        return word[0];
+      })
+      .join('');
+  });
+};
 
 createUsernames(accounts);
-
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -112,41 +120,60 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // convert movements to USD
 const eurToUsd = 1.1;
 
-const movementsUSD = movements.map((mov) => {return mov * eurToUsd});
+const movementsUSD = movements.map(mov => {
+  return mov * eurToUsd;
+});
 
 console.log(movements);
 console.log(movementsUSD);
 
 const movementDescriptions = movements.map((mov, i) => {
-  return `Movement ${i+1}: You ${mov > 0 ? 'deposited':'withdrew'} ${Math.abs(mov)}`;
-})
+  return `Movement ${i + 1}: You ${
+    mov > 0 ? 'deposited' : 'withdrew'
+  } ${Math.abs(mov)}`;
+});
 
 console.log(movementDescriptions);
 
+// chaining methods (PIPELINE)
+// 1. get only deposits
+// 2. eur to usd
+// 3. sum all of the values up
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
+
 // filter method
 // create array of deposits
-const deposits = movements.filter((mov) => {return mov > 0;})
+const deposits = movements.filter(mov => {
+  return mov > 0;
+});
 
 console.log(movements);
 console.log(deposits);
 
-const withdrawals = movements.filter((mov) => {return mov < 0;})
+const withdrawals = movements.filter(mov => {
+  return mov < 0;
+});
 console.log(withdrawals);
-
 
 // reduce method
 // create global balance of account - accumulator -> Snowball
-const balance = movements.reduce((acc, cur) => {return acc + cur; }, 0);
+const balance = movements.reduce((acc, cur) => {
+  return acc + cur;
+}, 0);
 console.log(balance);
 
 // Maximum value
 const maxMovement = movements.reduce((acc, cur) => {
   if (acc > cur) return acc;
   else return cur;
-}, movements[0])
+}, movements[0]);
 
 console.log(maxMovement);
-
 
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
@@ -162,7 +189,7 @@ const dogsKate = [4, 1, 15, 8, 3];
 const dogsJulia2 = [9, 16, 6, 8, 3];
 const dogsKate2 = [10, 5, 6, 1, 4];
 
-const checkDogs = function(dogs1, dogs2) {
+const checkDogs = function (dogs1, dogs2) {
   const dogs1Copy = dogs1.slice();
   dogs1Copy.splice(0, 1);
   dogs1Copy.splice(-2);
@@ -172,42 +199,43 @@ const checkDogs = function(dogs1, dogs2) {
 
   dogsJuliaKate.forEach((dogAge, i) => {
     if (dogAge > 3) {
-      console.log(`Dog number ${i + 1} is an adult and is ${dogAge} years old.`)
+      console.log(
+        `Dog number ${i + 1} is an adult and is ${dogAge} years old.`
+      );
     } else {
-      console.log(`Dog number ${i + 1} is still a puppy.`)
+      console.log(`Dog number ${i + 1} is still a puppy.`);
     }
-  })
-}
+  });
+};
 
 // checkDogs(dogsJulia, dogsKate);
 // checkDogs(dogsJulia2, dogsKate2);
 
-const calcAverageHumanAge = function(dogAges) {
+const calcAverageHumanAge = function (dogAges) {
   // Calculate dog ages in human years
-  const mapDogs = dogAges.map((age) => {
+  const mapDogs = dogAges.map(age => {
     return age <= 2 ? 2 * age : 16 + 4 * age;
-  })
+  });
 
   // Exclude all the dogs less than 18 human years old
-  const adultDogs = mapDogs.filter((humanAge) => {
+  const adultDogs = mapDogs.filter(humanAge => {
     return humanAge >= 18;
-  })
+  });
 
   // Calculate average human age of all adult dogs
   const averageHumanAge = adultDogs.reduce((acc, cur, i, array) => {
-    return acc + cur / array.length
-  },0)
+    return acc + cur / array.length;
+  }, 0);
 
-  console.log('Average adult dog years: ',averageHumanAge);
+  console.log('Average adult dog years: ', averageHumanAge);
 
-  return averageHumanAge
-}
+  return averageHumanAge;
+};
 
 const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
 const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 
 calcAverageHumanAge(dogAges1);
 calcAverageHumanAge(dogAges2);
-
 
 /////////////////////////////////////////////////
