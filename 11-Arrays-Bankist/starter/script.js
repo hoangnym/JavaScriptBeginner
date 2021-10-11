@@ -128,6 +128,9 @@ console.log(withdrawals);
 
 
 // reduce method
+// create global balance of account - accumulator -> Snowball
+const balance = movements.reduce((acc, cur) => {return acc + cur; }, 0);
+console.log(balance);
 
 
 // const movementsUSDForOf = [];
