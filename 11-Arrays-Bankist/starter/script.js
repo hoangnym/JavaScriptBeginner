@@ -139,6 +139,14 @@ console.log(withdrawals);
 const balance = movements.reduce((acc, cur) => {return acc + cur; }, 0);
 console.log(balance);
 
+// Maximum value
+const maxMovement = movements.reduce((acc, cur) => {
+  if (acc > cur) return acc;
+  else return cur;
+}, movements[0])
+
+console.log(maxMovement);
+
 
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
