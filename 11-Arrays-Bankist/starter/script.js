@@ -155,7 +155,7 @@ console.log(maxMovement);
 
 // console.log(movementsUSDForOf);
 
-// Coding Challange
+// Coding Challanges
 
 const dogsJulia = [3, 5, 2, 12, 7];
 const dogsKate = [4, 1, 15, 8, 3];
@@ -181,5 +181,33 @@ const checkDogs = function(dogs1, dogs2) {
 
 // checkDogs(dogsJulia, dogsKate);
 // checkDogs(dogsJulia2, dogsKate2);
+
+const calcAverageHumanAge = function(dogAges) {
+  // Calculate dog ages in human years
+  const mapDogs = dogAges.map((age) => {
+    return age <= 2 ? 2 * age : 16 + 4 * age;
+  })
+
+  // Exclude all the dogs less than 18 human years old
+  const adultDogs = mapDogs.filter((humanAge) => {
+    return humanAge >= 18;
+  })
+
+  // Calculate average human age of all adult dogs
+  const averageHumanAge = adultDogs.reduce((acc, cur, i, array) => {
+    return acc + cur / array.length
+  },0)
+
+  console.log('Average adult dog years: ',averageHumanAge);
+
+  return averageHumanAge
+}
+
+const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
+
+calcAverageHumanAge(dogAges1);
+calcAverageHumanAge(dogAges2);
+
 
 /////////////////////////////////////////////////
