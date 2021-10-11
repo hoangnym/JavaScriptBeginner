@@ -237,19 +237,12 @@ const checkDogs = function (dogs1, dogs2) {
 
 const calcAverageHumanAge = function (dogAges) {
   // Calculate dog ages in human years
-  const mapDogs = dogAges.map(age => {
-    return age <= 2 ? 2 * age : 16 + 4 * age;
-  });
-
   // Exclude all the dogs less than 18 human years old
-  const adultDogs = mapDogs.filter(humanAge => {
-    return humanAge >= 18;
-  });
-
   // Calculate average human age of all adult dogs
-  const averageHumanAge = adultDogs.reduce((acc, cur, i, array) => {
-    return acc + cur / array.length;
-  }, 0);
+  const averageHumanAge = dogAges
+    .map(age => (age <= 2 ? 2 * age : 16 + 4 * age))
+    .filter(humanAge => humanAge >= 18)
+    .reduce((acc, cur, i, array) => acc + cur / array.length, 0);
 
   console.log('Average adult dog years: ', averageHumanAge);
 
