@@ -62,11 +62,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 // Functions
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  // .textContent = 0
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
       <div class="movements__row">
@@ -219,6 +220,15 @@ btnClose.addEventListener('click', function (e) {
 
   inputCloseUsername.value = inputClosePin.value = '';
 });
+
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -330,6 +340,18 @@ const overallBalance = accounts
   .flatMap(acc => acc.movements) // only goes one level deep
   .reduce((acc, cur) => acc + cur, 0);
 console.log(overallBalance);
+
+// sorting
+const owners = ['Jonas', 'Zack', 'Adam', 'Martha'];
+console.log(owners.sort()); // mutates the array
+console.log(owners);
+
+// Numbers
+console.log(movements);
+movements.sort((a, b) => a - b);
+console.log(movements);
+movements.sort((a, b) => b - a);
+console.log(movements);
 
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
