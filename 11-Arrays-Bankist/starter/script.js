@@ -116,6 +116,20 @@ const movementDescriptions = movements.map((mov, i) => {
 
 console.log(movementDescriptions);
 
+// filter method
+// create array of deposits
+const deposits = movements.filter((mov) => {return mov > 0;})
+
+console.log(movements);
+console.log(deposits);
+
+const withdrawals = movements.filter((mov) => {return mov < 0;})
+console.log(withdrawals);
+
+
+// reduce method
+
+
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
 //   movementsUSDForOf.push(mov * eurToUsd);
