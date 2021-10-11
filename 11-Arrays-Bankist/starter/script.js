@@ -199,6 +199,16 @@ const maxMovement = movements.reduce((acc, cur) => {
 
 console.log(maxMovement);
 
+// find method
+console.log('----FIND----');
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
 //   movementsUSDForOf.push(mov * eurToUsd);
