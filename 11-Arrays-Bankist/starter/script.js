@@ -181,10 +181,44 @@ btnTransfer.addEventListener('click', function (e) {
     // Update user interface
     updateUI(currentAccount);
   }
-  // Add negative movement to current user
-  // Add positive movement to recipient
 });
 
+// Request a loan
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  const anyDeposits = currentAccount.movements.some(mov => mov >= 0.1 * amount);
+
+  if (amount > 0 && anyDeposits) {
+    // add positive movement
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
+
+// Close account
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount?.pin === Number(inputClosePin.value) &&
+    currentAccount?.username === inputCloseUsername.value
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+    // Delete Account
+    accounts.splice(index, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -266,6 +300,15 @@ console.log(accounts);
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
 
+// some and every method
+console.log(movements);
+// Equality
+console.log(movements.includes(-130));
+
+// Has there been any deposits on the account? // conditon
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits);
+
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
 //   movementsUSDForOf.push(mov * eurToUsd);
@@ -319,7 +362,7 @@ const calcAverageHumanAge = function (dogAges) {
 const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
 const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 
-calcAverageHumanAge(dogAges1);
-calcAverageHumanAge(dogAges2);
+// calcAverageHumanAge(dogAges1);
+// calcAverageHumanAge(dogAges2);
 
 /////////////////////////////////////////////////
