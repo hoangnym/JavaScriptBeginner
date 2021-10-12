@@ -212,12 +212,19 @@ btnLogin.addEventListener('click', function (e) {
 
     // Create current date
     const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const hour = `${now.getHours()}`.padStart(2, 0);
-    const min = `${now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      day: 'numeric',
+      month: 'long',
+      year: '2-digit',
+      weekday: 'long',
+    };
+    const locale = currentAccount.locale;
+
+    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
+      now
+    );
 
     // Update UI
     updateUI(currentAccount);
@@ -400,7 +407,6 @@ console.log(12n / 3n);
 
 // Create a date
 // const now = new Date();
-const now = new Date();
 console.log(now);
 console.log(new Date(account1.movementsDates[0]));
 
