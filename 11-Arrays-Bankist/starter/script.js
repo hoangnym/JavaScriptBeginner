@@ -502,7 +502,7 @@ const dogs = [
 
 // 1. Add recommended food portion
 dogs.forEach(dog => {
-  dog.recommendedFood = dog.weight ** 0.75 * 28;
+  dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28);
 });
 
 console.log(dogs);
@@ -561,9 +561,7 @@ console.log(dogsEatingOkay);
 
 // 8. Create a shallow copy
 const dogsCopy = dogs.slice();
-dogsCopy.sort(
-  (dog1, dog2) => Number(dog1.recommendedFood) - Number(dog2.recommendedFood)
-);
+dogsCopy.sort((dog1, dog2) => dog1.recommendedFood - dog2.recommendedFood);
 
 console.log(dogsCopy);
 console.log(dogs);
