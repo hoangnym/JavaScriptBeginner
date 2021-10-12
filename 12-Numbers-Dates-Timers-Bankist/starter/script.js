@@ -325,3 +325,43 @@ console.log(isEven(514));
 //     if (i % 3 === 0) row.style.backgroundColor = 'blue';
 //   });
 // });
+
+// BigInt
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(92891729127917291367930127111212n); // BigInt
+console.log(BigInt(92891729127917291367930127111212));
+
+// Operations with BigInt
+console.log(10000n + 10000n);
+console.log(1021021830138100172103611n * 1000000n);
+const huge = 12910210371018201820120n;
+const num = 23;
+console.log(huge * BigInt(num));
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(typeof 20);
+console.log(20n == 20); // type coercion
+console.log(huge + ' is REALLY big!!!');
+console.log(12n / 3n);
+
+// Create a date
+const now = new Date();
+console.log(now);
+console.log(new Date(account1.movementsDates[0]));
+
+// year, month, day, hour, min, sec - 0 counted
+console.log(new Date(2021, 10, 19));
+console.log(new Date(2021, 0, 1));
+console.log(new Date(2021, 11, 1));
+
+console.log(now.getFullYear()); // year
+console.log(now.getMonth()); // month
+console.log(now.getDate()); // day
+console.log(now.getDay()); // weekday
+
+console.log(Date.now()); // timestamp
+now.setFullYear(2040);
+console.log(now);
