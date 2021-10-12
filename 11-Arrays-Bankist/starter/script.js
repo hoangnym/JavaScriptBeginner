@@ -441,4 +441,34 @@ const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 // calcAverageHumanAge(dogAges1);
 // calcAverageHumanAge(dogAges2);
 
+// Array method exercises
+// 1. Sum of all deposits?
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepositSum);
+
+// 2. Count how many deposits at least 1000?
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => {
+    return cur >= 1000 ? ++count : count;
+  }, 0);
+console.log(numDeposits1000);
+
+// 3. Create object that has sums of withdrawals and deposits
+const sums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(sums);
+
 /////////////////////////////////////////////////
