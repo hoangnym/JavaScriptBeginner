@@ -353,6 +353,38 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 console.log(movements);
 
+// Automatically create and fill arrays
+const x = new Array(7);
+console.log(x);
+console.log(x.map(() => 5));
+
+// x.fill(1);
+x.fill(1, 3, 5);
+console.log(x);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+const randomDiceRolls = Array.from(
+  { length: 100 },
+  () => Math.floor(Math.random() * 6) + 1
+);
+
+console.log(randomDiceRolls);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movementsUI);
+});
+
 // const movementsUSDForOf = [];
 // for (const mov of movements) {
 //   movementsUSDForOf.push(mov * eurToUsd);
