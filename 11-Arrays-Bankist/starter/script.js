@@ -491,4 +491,80 @@ console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
+console.log('---------FINAL Coding Challenge---------');
+// TEST DATA
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// 1. Add recommended food portion
+dogs.forEach(dog => {
+  dog.recommendedFood = dog.weight ** 0.75 * 28;
+});
+
+console.log(dogs);
+
+// 2. Find Sarah's dog and log whether it is eating too much or too little
+const { curFood, recommendedFood } = dogs.filter(dog =>
+  dog.owners.includes('Sarah')
+)[0];
+const dogSarahFood = `Dog eats too ${
+  curFood > recommendedFood ? 'much' : 'little'
+}!`;
+console.log(dogSarahFood);
+
+// 3. Create array of all owners of dogs who eat too much and too little
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog['owners']);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recommendedFood)
+  .flatMap(dog => dog['owners']);
+
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+// 4. Log a string to the console
+const logFoodDiagnosis = function (arrayOfOwners, diagnosis) {
+  const ownerStr = arrayOfOwners.join(' and ');
+  return `${ownerStr} dogs eat too ${diagnosis}.`;
+};
+
+console.log(logFoodDiagnosis(ownersEatTooMuch, 'much'));
+console.log(logFoodDiagnosis(ownersEatTooLittle, 'little'));
+
+// 5. Log to console whether there is any dog eating exactly the amount recommended // true, false
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFood));
+
+// 6. Log to console whther there is any dog eating in okay range
+const anyDogEatingOkay = dogs.some(
+  dog =>
+    dog.curFood <= 1.1 * dog.recommendedFood &&
+    dog.curFood >= 0.9 * dog.recommendedFood
+);
+console.log(anyDogEatingOkay);
+
+// 7. Create array containing dogs that are eating OKAY amount of food
+const dogsEatingOkay = dogs
+  .filter(
+    dog =>
+      dog.curFood <= 1.1 * dog.recommendedFood &&
+      dog.curFood >= 0.9 * dog.recommendedFood
+  )
+  .flatMap(dog => dog.owners);
+
+console.log(dogsEatingOkay);
+
+// 8. Create a shallow copy
+const dogsCopy = dogs.slice();
+dogsCopy.sort(
+  (dog1, dog2) => Number(dog1.recommendedFood) - Number(dog2.recommendedFood)
+);
+
+console.log(dogsCopy);
+console.log(dogs);
 /////////////////////////////////////////////////
