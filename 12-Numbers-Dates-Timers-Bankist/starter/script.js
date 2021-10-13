@@ -217,7 +217,7 @@ const startLogoutTimer = function () {
     time--;
   };
   // Set time to 5 minutes
-  let time = 10;
+  let time = 120;
   // Call the timer every second
   tick();
   const timerToLogout = setInterval(tick, 1000);
@@ -302,6 +302,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Reset timer
+    clearInterval(timerToLogout);
+    timerToLogout = startLogoutTimer();
   }
 });
 
@@ -323,6 +327,10 @@ btnLoan.addEventListener('click', function (e) {
     }, 2500);
   }
   inputLoanAmount.value = '';
+
+  // Reset timer
+  clearInterval(timerToLogout);
+  timerToLogout = startLogoutTimer();
 });
 
 btnClose.addEventListener('click', function (e) {
