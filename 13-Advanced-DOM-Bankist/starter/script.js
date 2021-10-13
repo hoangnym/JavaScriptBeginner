@@ -78,21 +78,46 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+// Tabbed Component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  // Matching strategy
+  const clicked = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // Activate tab
+  clicked.classList.add('operations__tab--active');
+
+  // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
 //////////////////// EXPERIMENTS ////////////////////
 // Selecting documents
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
-console.log(allSections);
+// console.log(allSections);
 
 document.getElementById('section--1');
 const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+// console.log(allButtons);
 
-console.log(document.getElementsByClassName('btn'));
+// console.log(document.getElementsByClassName('btn'));
 
 // Creating and inserting elements
 // .insertAdjacentHTML
@@ -101,7 +126,7 @@ message.classList.add('cookie-message');
 // message.textContent = 'We used cookies for improved functionality and analytics.'
 message.innerHTML =
   'We used cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
-console.log(message);
+// console.log(message);
 
 header.append(message); // first child of header element
 // header.before(message);
@@ -120,25 +145,25 @@ message.style.width = '120%';
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
 
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // Attributes
 const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
 
-console.log(logo.getAttribute('designer'));
+// console.log(logo.getAttribute('designer'));
 
 logo.alt = 'Beautiful minimalist logo';
-console.log(logo.alt);
+// console.log(logo.alt);
 
 logo.setAttribute('company', 'Bankist');
-console.log(logo.getAttribute('company'));
-console.log(logo.getAttribute('src'));
+// console.log(logo.getAttribute('company'));
+// console.log(logo.getAttribute('src'));
 
 // Data attributes
 console.log(logo.dataset); // DOMStringMap
@@ -197,26 +222,26 @@ const randomColor = () =>
 const h1 = document.querySelector('h1');
 
 //// Going downwards: child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children);
 // h1.firstElementChild.style.color = 'white';
 // h1.lastElementChild.style.color = 'orangered';
 
 //// Going upwards: parents
-console.log(h1.parentNode);
-console.log(h1.parentElement);
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
 
 // h1.closest('.header').style.background = 'var(--gradient-secondary)';
 
 // h1.closest('h1').style.background = 'var(--gradient-primary)';
 
 //// Go sideways: siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
 
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
 
 // console.log(h1.parentElement.children);
 // [...h1.parentElement.children].forEach(function (el) {
