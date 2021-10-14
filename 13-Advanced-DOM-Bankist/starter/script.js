@@ -212,7 +212,6 @@ const slider = function () {
   let curSlide = 0;
   const maxSlide = slides.length;
 
-  const slider = document.querySelector('.slider');
   // slider.style.transform = 'scale(0.5)';
   // slider.style.overflow = 'visible';
   // 0%, 100%, 200%, 300%, ...
@@ -352,7 +351,7 @@ logo.setAttribute('company', 'Bankist');
 // console.log(logo.getAttribute('src'));
 
 // Data attributes
-console.log(logo.dataset); // DOMStringMap
+// console.log(logo.dataset); // DOMStringMap
 
 // Classes
 logo.classList.add('c');
@@ -432,4 +431,20 @@ const h1 = document.querySelector('h1');
 // console.log(h1.parentElement.children);
 // [...h1.parentElement.children].forEach(function (el) {
 //   if (el !== h1) el.style.transform = 'scale(0.5)';
+// });
+
+// Lifecycle DOM Events
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built', e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// Prompt user whether he really wants to leave
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
 // });
