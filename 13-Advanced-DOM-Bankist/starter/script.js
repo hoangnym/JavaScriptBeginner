@@ -162,7 +162,6 @@ headerObserver.observe(header);
 const allSections = document.querySelectorAll('.section');
 const revealSection = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -179,7 +178,38 @@ allSections.forEach(function (section) {
   section.classList.add('section--hidden');
 });
 
+// Lazy loading of images
+const imgTargets = document.querySelectorAll('img[data-src]');
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src; // emit load event
+  // Listen for load event (when img it loaded => remove lazy img class)
+  entry.target.addEventListener('load', () =>
+    entry.target.classList.remove('lazy-img')
+  );
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
+
+// Slider component
+const slides = document.querySelectorAll('.slide');
+// 0%, 100%, 200%, 300%, ...
+slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
+
 //////////////////// EXPERIMENTS ////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 // Selecting documents
 // console.log(document.documentElement);
 // console.log(document.head);
