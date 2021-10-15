@@ -68,3 +68,32 @@ const h1 = document.querySelector('h1');
 console.dir(x => x + 1);
 
 // Coding Challenge 1
+// 1. use constructor function to implement a car (make, speed)
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+// 2. implement accelerate method
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed} km/h.`);
+};
+// 3. implement brake method
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is going at ${this.speed} km/h.`);
+};
+// 4. create two car objects
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedes', 95);
+
+console.log(bmw);
+console.log(mercedes);
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+
+mercedes.accelerate();
+mercedes.brake();
+mercedes.brake();
