@@ -179,4 +179,53 @@ Person.hey = function () {
 };
 
 Person.hey();
-// jonas.hey();
+PersonCl.hey();
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`Hi, I am ${this.fullName}`);
+  }
+
+  calcAge() {
+    return 2022 - this.birthYear;
+  }
+}
+
+const martha = new StudentCl('Marth Jones', 2012, 'Computer Science');
+console.log(martha);
+martha.introduce();
+console.log(martha.calcAge());
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${this.owner}`);
+  }
+
+  // Public interface
+  deposit(val) {
+    this.movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+console.log(acc1);
+
+acc1.deposit(250);
+acc1.withdraw(140);
+
+console.log(acc1);
